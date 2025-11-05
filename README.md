@@ -26,16 +26,17 @@ Each round gets tougher as the pattern grows longer. One mistake, and it’s gam
 
 memory game/
 │
-├── index.html # Main game page
-├── styles.css # Game styling and layout
-├── index.js # Core game logic
-│
-└── sounds/ # Sound effects for buttons
-├── blue.mp3
-├── green.mp3
-├── red.mp3
-├── yellow.mp3
-└── wrong.mp3
+├── index.html          # Main game interface
+├── styles.css          # Styling for buttons, layout, and animations
+├── index.js            # Game logic (pattern generation, user input, etc.)
+├── sounds/             # Sound effects for gameplay
+│   ├── blue.mp3
+│   ├── green.mp3
+│   ├── red.mp3
+│   ├── yellow.mp3
+│   └── wrong.mp3
+└── README.md           # You’re reading this file
+
 
 
 ---

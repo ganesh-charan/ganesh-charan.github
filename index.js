@@ -3,8 +3,13 @@ var gamePattern = [];
 var userClickedPattern = [];
 var level = 0;
 var started = false;
-$(document).keydown(function() {
+$(document).on("keydown touchstart", function(event) {
+  
   if (!started) {
+   
+    if (event.type === "touchstart") {
+      event.preventDefault();
+    }
     nextSequence();
     started = true;
   }
@@ -29,14 +34,19 @@ function playSound(color) {
   var sound = new Audio("./sounds/" + color + ".mp3");
   sound.play();
 }
-$(".btn").click(function() {
+$(".btn").on("click touchstart", function(event) {
+ 
+  if (event.type === "touchstart") {
+    event.preventDefault();
+  }
+
   var userColor = $(this).attr("id");
   userClickedPattern.push(userColor);
  
   playSound(userColor);
   $(this).addClass("pressed");
   setTimeout(function(){ $("#"+userColor).removeClass("pressed");}, 100);
-   checkAnswer(userClickedPattern.length-1);
+  checkAnswer(userClickedPattern.length-1);
 });
 $(document).keypress(function(event) {
   var keyMap = { w: "blue", a: "green", s: "red", d: "yellow" };
@@ -79,4 +89,3 @@ function startOver() {
   started = false;
   $("h1").text=("Press A Key To Play");
 }
-
